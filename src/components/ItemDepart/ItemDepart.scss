@@ -1,0 +1,44 @@
+.card__depart {
+  display: grid;
+  // grid-template-columns: 1fr 1.25fr;
+  grid-template-rows: 200px 1fr 1fr;
+  background-color: #3f4553;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 10px #333;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 419px;
+  animation: intro_card 1s ease;
+  img {
+    object-fit: cover;
+    max-height: 200px;
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 1s ease, filter 1s ease;
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+      cursor: pointer;
+    }
+  }
+  .content__card {
+    padding: 10px;
+  }
+  .content__icons {
+    display: flex;
+    //   grid-column: 2/3;
+    justify-content: space-between;
+    padding: 10px;
+    span {
+      padding-left: 8px;
+    }
+  }
+}
+
+@keyframes intro_card {
+  0%{
+    opacity: .5;
+  }100%{
+    opacity: 1;
+  }
+}

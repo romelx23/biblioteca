@@ -1,0 +1,49 @@
+@mixin boton_menu {
+  background: transparent;
+  color: #fff;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: transform 1s ease, background .5s ease;
+  &:hover {
+    transform: scale(1.1);
+    background: rgb(255, 241, 241);
+    color: #333;
+  }
+}
+@mixin display_sidebar__content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.container__sidebar__menu {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #454c5a;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  .boton {
+    @include boton_menu;
+  }
+  .content__siedebar__top {
+    @include display_sidebar__content();
+  }
+  .content__siedebar__bottom {
+    @include display_sidebar__content();
+  }
+  img {
+    width: 40px;
+  }
+}

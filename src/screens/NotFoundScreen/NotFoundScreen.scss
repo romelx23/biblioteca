@@ -1,0 +1,23 @@
+.container__notfound{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        font-size: 40px;
+        font-weight: 900;
+    }
+    img{
+        margin-top: 20px;
+        animation: jump 1s infinite alternate-reverse;
+    }
+}
+
+@keyframes jump {
+    0%{
+        transform: translateY(0px);
+    }100%{
+        transform: translateY(-50px);
+    }
+}
