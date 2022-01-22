@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './DepartScreen.scss'
 import { ItemDepart } from '../../components/ItemDepart/ItemDepart';
 import { data } from '../../data/depart_data';
@@ -81,18 +81,36 @@ export const DepartScreen = () => {
         // console.log(temp);
     }
     const handleFilter = () => {
-
+        setValue(5000)
+        setValue2(1000)
+        setCheck({
+            home: true,
+            townhomes: true,
+            apartments: true
+        })
+        setCount({
+            minbed: 0,
+            maxbed: 2,
+            minbath: 0,
+            maxbath: 2,
+        })
     }
     // console.log(check);
     // console.log(value3);
+    // const memoCall=useCallback(() => {
+    //     console.log('memo');
+    //     handleArray()
+    // }, [handleArray]);
+    // memoCall()
     useEffect(() => {
         handleArray()
     }, [check])
+
     return (
         <div className='container__depart'>
             <div className="navbar__depart">
                 <Link to="/">
-                <img src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/599/6692764599_c59ba620-2565-4883-a8ca-e5cdf8b368a5.png?cb=1642881927" alt="logo" />
+                    <img src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/599/6692764599_c59ba620-2565-4883-a8ca-e5cdf8b368a5.png?cb=1642881927" alt="logo" />
                 </Link>
                 <div className="buttons__register">
                     <button>Login</button>
@@ -103,13 +121,8 @@ export const DepartScreen = () => {
                 {/* <div className="card__depart">
                 </div> */}
                 {
-                    data.map((item) => {
-                        if (item.price <= value && value2<=item.price  && value3.includes(item.type)) {
-                            if(count.minbed<=item.bedrooms && item.bedrooms<=count.maxbed && count.minbath<=item.bedrooms && item.bathrooms<=count.maxbath){
-                                    return <ItemDepart item={item} key={item.id} />
-                            }
-                        }
-                    })
+                    data.filter((item) => (item.price <= value && value2 <= item.price && value3.includes(item.type) && count.minbed <= item.bedrooms && item.bedrooms <= count.maxbed && count.minbath <= item.bedrooms && item.bathrooms <= count.maxbath)
+                    ).map(item => <ItemDepart item={item} key={item.id} />)
                 }
             </div>
             <div className="container__filter">
