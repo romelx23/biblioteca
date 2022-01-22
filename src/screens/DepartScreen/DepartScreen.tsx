@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './DepartScreen.scss'
 import { ItemDepart } from '../../components/ItemDepart/ItemDepart';
 import { data } from '../../data/depart_data';
@@ -42,7 +42,7 @@ export const DepartScreen = () => {
     }
     // console.log(count);
     const handleArray = () => {
-        console.log(check);
+        // console.log(check);
         // let temp=['home','townhomes','apartments'];
         if (check.home === false) {
             const filtrado = value3.filter(el => el !== 'home')
